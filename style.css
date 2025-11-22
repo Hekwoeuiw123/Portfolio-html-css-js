@@ -60,7 +60,9 @@ h2{
         0 0 50px rgb(130, 238, 23);
 }
 
-
+::-webkit-scrollbar{
+    display: none;
+}
 
 
 
@@ -472,13 +474,38 @@ spline-viewer {
 
 .about-content p {
     font-size: 1.2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .about-content a {
-    margin: 0
+    display: inline-block;
+    margin-top: 0
+}
+.about-strengths {
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
 }
 
+.about-strengths ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.about-strengths li {
+    font-size: 1.1rem;
+    color: #eee;
+    background-color: #313336; /* Your section's bg color */
+    border: 1px solid chartreuse;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+
+.about-strengths li i {
+    color: chartreuse;
+    margin-right: 0.5rem;
+}
 /* ########################### Project Section ###########################*/
 .project-section {
     width: 100%;
@@ -488,6 +515,14 @@ spline-viewer {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+ .project-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:3rem;
+    flex-wrap: wrap;
 }
 .project h2 {
     font-size: 2rem;
@@ -503,13 +538,12 @@ spline-viewer {
 
 .project-item {
     position: relative;
-    height: 400px;
-    width: 31%;
+    width: 31%; 
     border-radius: 20px;
-    overflow: hidden;
-    transition: .4s ease-in-out;
-    opacity: 1;
-    /* animation: fadeUp 4s ease-in-out forwards;
+    overflow: hidden; /* Keeps the top corners of the image rounded */
+    transition: all .4s ease-in-out;
+    background-color: #313336; /* Card background (from your 'About' bg) */
+        /* animation: fadeUp 4s ease-in-out forwards;
     animation-delay: calc(0.8s * var(--i));
     animation-timeline: view();
     animation-range: entry 20% cover 30%; start 20% in, run over 30% of viewport */
@@ -519,69 +553,39 @@ spline-viewer {
     box-shadow: 0 0 5px chartreuse,
         0 0 15px rgb(132, 223, 41),
         0 0 30px rgb(166, 236, 95);
-}
-.project-item:hover .project-content{
-    transform: translateY(0);    
-}
-.project-item:hover img {
-    transform: scale(1.1);
-    transition: .4s ease-in-out;
+    transform: translateY(-5px);    
 }
 
 .project-item img {
-    height: 100%;
     width: 100%;
-    border-radius: 20px;
+    display: block;
+    transition: transform 0.4s ease-in-out;
 }
-.project-box{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap:3rem;
-    flex-wrap: wrap;
+.project-item:hover img {
+    transform: scale(1.05);
 }
-.project-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    border-radius: 20px;
+
+.project-card-content {
+    padding: 1.5rem;
     color: aliceblue;
-    background: linear-gradient(to top, rgb(206, 255, 157) 0.001%, transparent);
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 1rem;
-    text-align: center;
-    transform: translateY(100%);
-    transition: transform 0.5s ease-in-out;
 }
 
-.project-content .btn {
-    margin-top: 2rem;
-    border: 2px solid chartreuse;
-    background: transparent;
-    color: #0c5214;
-}
-
-.project-content .btn:hover{
-    background-color: chartreuse;
-    color: #1f242d;
-    box-shadow: 0 0 20px chartreuse;
-}
-.project-content h2 {
+.project-card-content h2 {
     font-weight: 600;
-    font-size: 1.9rem;
-    color:#0c5214
+    font-size: 1.7rem; 
+    color: #ffffff; 
+    margin-bottom: 0.5rem;
 }
-.project-content p{
-    font-size: 1.2rem;
-    font-weight: 500;
-    color:#3a6907
+
+.project-card-content p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #ccc;
+    margin-bottom: 1rem;
+    min-height: 60px; 
 }
+
+
 @keyframes fadeUp{
   from {
     opacity: 0.5;
@@ -594,8 +598,9 @@ spline-viewer {
     pointer-events: all;
   }
 }
+
 .tech-stack {
-    margin-top: 10px;
+    margin-bottom: 1.5rem;
 }
 
 .badge {
@@ -612,6 +617,44 @@ spline-viewer {
 .badge:hover {
     background-color: #00bcd4;
 }
+
+.project-links {
+    display: flex;
+    gap: 1rem; /* Space between the two buttons */
+}
+
+.btn-demo,
+.btn-code {
+    flex: 1; /* Make both buttons share the space equally */
+    padding: 0.8rem;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid chartreuse;
+}
+
+.btn-demo {
+    background-color: chartreuse;
+    color: #1f242d; 
+}
+
+.btn-demo:hover {
+    background-color: #a7f753;
+    box-shadow: 0 0 10px chartreuse;
+}
+
+.btn-code {
+    background-color: transparent;
+    color: chartreuse;
+}
+
+.btn-code:hover {
+    background-color: chartreuse;
+    color: #1f242d; 
+}
+
 /* ########################### Skill section ###########################*/
 
 .skill-section {
@@ -854,7 +897,7 @@ spline-viewer {
     font-size: 1.5rem;
     background: transparent;
     border: 2px solid chartreuse;
-    resize: none; /* 🔒 disables expand */
+    resize: none; 
     height: 150px;
     color: aliceblue;
 }
@@ -895,7 +938,7 @@ spline-viewer {
     color:rgba(94, 182, 7, 0.568);
 }
 
-/* ✈️ Keyframes for paper plane flight */
+/*  Keyframes for paper plane flight */
 @keyframes flyplane {
      0% {
         transform: translate(0, 0) rotate(0deg);
@@ -1002,4 +1045,367 @@ spline-viewer {
   margin-top: 2rem;
   font-size: 0.9rem;
   color: #999;
+}
+
+
+/* ########################### Responsive CSS ###########################*/
+
+@media (max-width: 768px) {
+      .header {
+            padding: 0.8rem 0;
+      }
+
+     
+      .navbar-list-item {
+            display: none;
+      }
+}
+
+/* ########################### */
+
+@media (max-width: 768px) {
+
+   
+    .home-section {
+        
+        height: auto;
+        
+        padding: 7rem 0 4rem;
+    }
+    .home {
+        flex-direction: column;
+        justify-content: center;    
+        gap: 3rem;
+    }
+
+    .home-content {
+        text-align: center;
+    }
+
+    .home-sci {
+        justify-content: center;
+    }
+
+    .img-box {
+        height: 350px;
+        width: 350px;
+    }
+
+    .img-item {
+        height: 340px;
+        width: 340px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .home-section {
+        padding-top: 6rem;
+        padding-bottom: 3rem;
+    }
+
+     .home {
+        gap: 2rem;
+    }
+
+    .home-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .home-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .home-content p {
+        font-size: 1rem;
+    }
+
+    .home-sci {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+    .img-box {
+        height: 280px;
+        width: 280px;
+    }
+
+    .img-item {
+        height: 270px;
+        width: 270px;
+    }
+}
+
+
+/* ########################### About ########################### */
+
+@media (max-width: 1024px) {
+    .about-container {
+        gap: 2.5rem; 
+    }
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .about-content {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-img .img-item {
+        height: 250px;
+        width: 250px;
+    }
+
+    .about-img .img-item img {
+        height: 250px;
+        width: 250px;
+    }
+
+    .about-content h2 {
+        font-size: 1.8rem; 
+    }
+
+    .about-content p {
+        font-size: 1rem; 
+    }
+}
+
+/* ###########################  Project  ########################### */
+
+/* --- Laptops (1025px – 1280px) --- */
+@media (max-width: 1280px) {
+    .project-box {
+        gap: 1.5rem;
+    }
+    
+    /* Switch to 2 columns on smaller laptops/large tablets */
+    .project-item {
+        width: 45%; 
+    }
+}
+
+/* --- Tablets (768px – 1024px) --- */
+@media (max-width: 1024px) {
+    .project-section {
+        padding: 3rem 0;
+    }
+
+    .project-item {
+        width: 48%; 
+    }
+    
+    .project h2 {
+        font-size: 2.2rem;
+    }
+}
+
+/* --- Large Mobile (481px – 767px) --- */
+@media (max-width: 767px) {
+    .project-box {
+        flex-direction: column; /* Stack cards vertically */
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .project-item {
+        width: 90%; 
+        min-width: unset; 
+    }
+
+    .project-item img {
+        height: 200px; 
+    }
+}
+
+/* --- Small Mobile (320px – 480px) --- */
+@media (max-width: 480px) {
+    .project h2 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+
+    .project-item {
+        width: 100%; 
+        border-radius: 15px;
+    }
+
+    .project-card-content {
+        padding: 1.2rem;
+    }
+
+    .project-card-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .project-card-content p {
+        font-size: 0.95rem;
+    }
+
+    /* Stack buttons for easier tapping */
+    .project-links {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .btn-demo, .btn-code {
+        width: 100%;
+        padding: 0.7rem;
+    }
+}
+/* ###########################  SKill  ########################### */
+
+/* --- Laptops (1025px – 1280px) --- */
+@media (max-width: 1280px) {
+    .skill-container, 
+    .other-skills {
+        padding: 1.5rem;
+    }
+    
+    .other-skill-box {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+/* --- Tablets (768px – 1024px) --- */
+@media (max-width: 1024px) {
+    .all-skill-contain {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skill-container, 
+    .other-skills {
+        width: 90%;
+        margin-bottom: 2rem;
+    }
+
+    .other-skill-box {
+        width: 160px; 
+        height: 160px;
+    }
+}
+
+/* --- Large Mobile (481px – 767px) --- */
+@media (max-width: 767px) {
+    .skill-section {
+        padding: 2rem 0;
+    }
+
+    .skill h2 {
+        font-size: 2rem;
+    }
+
+    .skill-container, 
+    .other-skills {
+        width: 100%; 
+        border-width: 1px; 
+        padding: 1.5rem 1rem;
+    }
+
+    .skill-item img {
+        height: 60px; 
+    }
+
+    .skill-item h3 {
+        font-size: 1.2rem;
+    }
+
+    .other-skill-box {
+        width: 45%; 
+        height: auto;
+        aspect-ratio: 1/1; 
+    }
+}
+
+/* --- Small Mobile (320px – 480px) --- */
+@media (max-width: 480px) {
+    .skill h2 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+
+    .skill-container, 
+    .other-skills {
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .skill-box {
+        flex: 1 1 40%; 
+        min-width: 110px;
+    }
+
+    .skill-box .skill-item {
+        min-width: auto;
+        padding: 0.5rem;
+    }
+
+    .skill-item img {
+        height: 50px;
+    }
+
+    .skill-item h3 {
+        font-size: 1rem;
+        letter-spacing: 0.1rem;
+    }
+
+    .other-skill-box {
+        flex: 1 1 40%;
+        min-width: 120px;
+    }
+
+    .other-skill-box i {
+        font-size: 2rem;
+    }
+
+    .other-skill-box h3 {
+        font-size: 1rem;
+    }
+}
+
+/* ###########################  Contact  ########################### */
+
+@media (max-width: 1024px) {
+    .project-item {
+        width: 48%;
+    }
+}
+
+@media (max-width: 768px) {
+    .project h2 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+
+    .project-box {
+        gap: 2rem;
+    }
+
+    .project-item {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-item {
+        width: 100%;
+        height: 350px; 
+    }
+
+    .project-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .project-content p {
+        font-size: 1rem;
+    }
 }
